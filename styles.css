@@ -585,8 +585,10 @@ p {
 
 .contact-panel {
   display: grid;
-  grid-template-columns: 1.1fr 0.9fr;
-  gap: clamp(3rem, 8vw, 7rem);
+  grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.15fr);
+  align-items: center;
+  column-gap: clamp(2.5rem, 6vw, 5rem);
+  row-gap: clamp(2rem, 5vw, 3.5rem);
   padding: clamp(2rem, 6vw, 5rem);
   background: var(--surface);
   border: 1px solid var(--border);
@@ -594,13 +596,60 @@ p {
   box-shadow: var(--shadow);
 }
 
-.contact-panel h2 {
-  max-width: 13ch;
+.contact-heading {
+  grid-column: 1 / -1;
+  text-align: center;
+}
+
+.contact-heading h2 {
+  max-width: none;
+  font-size: clamp(2rem, 4vw, 3.25rem);
+}
+
+.contact-heading p:last-child {
+  margin-bottom: 0;
+}
+
+.contact-photo {
+  margin: 0;
+}
+
+.contact-photo img {
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+  object-position: center top;
+  border-radius: min(12vw, 8rem) min(12vw, 8rem) var(--radius-medium)
+    var(--radius-medium);
+  box-shadow: var(--shadow);
+}
+
+.contact-photo figcaption {
+  display: grid;
+  gap: 0.15rem;
+  margin-top: 1.25rem;
+  text-align: center;
+}
+
+.contact-photo figcaption strong {
+  color: var(--text);
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 1.15rem;
+  font-weight: 500;
+}
+
+.contact-photo figcaption span {
+  color: var(--text-muted);
+  font-size: 0.82rem;
+}
+
+.contact-actions {
+  display: grid;
+  gap: clamp(2rem, 4vw, 3rem);
 }
 
 .contact-details {
   display: grid;
-  align-content: center;
   gap: 1.75rem;
   font-style: normal;
 }
@@ -721,6 +770,11 @@ p {
 
   .hero-media {
     width: min(100%, 680px);
+    margin-inline: auto;
+  }
+
+  .contact-photo {
+    width: min(100%, 22rem);
     margin-inline: auto;
   }
 
