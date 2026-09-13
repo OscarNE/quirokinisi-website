@@ -568,6 +568,11 @@ p {
   text-underline-offset: 0.3rem;
 }
 
+.event-cta {
+  width: 100%;
+  margin-top: 1.25rem;
+}
+
 .events-note {
   margin: clamp(2rem, 5vw, 3rem) auto 0;
   text-align: center;
