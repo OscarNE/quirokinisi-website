@@ -168,9 +168,8 @@ p {
 
 .brand-logo {
   width: 3.25rem;
-  height: 3.25rem;
-  object-fit: cover;
-  border-radius: 50%;
+  height: auto;
+  object-fit: contain;
 }
 
 .brand-name,
@@ -809,7 +808,6 @@ p {
 
   .brand-logo {
     width: 2.75rem;
-    height: 2.75rem;
   }
 
   h1 {
