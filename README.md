@@ -6,7 +6,7 @@ Static website for GitHub Pages.
 
 Place these files in `images/`:
 
-- `logo.webp`
+- `logo.png`
 - `hero.webp`
 - `biomagnetismo.webp`
 - `masaje-ayurveda.webp`
