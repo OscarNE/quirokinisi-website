@@ -197,6 +197,7 @@ p {
 }
 
 .primary-navigation a:not(.nav-cta):hover,
+.primary-navigation a[aria-current="page"],
 .primary-navigation a:not(.nav-cta):focus-visible {
   text-decoration: underline;
   text-decoration-color: var(--accent);
@@ -583,6 +584,58 @@ p {
   font-weight: 650;
 }
 
+.testimonials .section-heading h1 {
+  max-width: none;
+}
+
+.testimonials-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1.5rem;
+  align-items: start;
+}
+
+.testimonial-card {
+  min-width: 0;
+  margin: 0;
+  overflow: hidden;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-medium);
+  box-shadow: var(--shadow);
+}
+
+.testimonial-player {
+  aspect-ratio: 9 / 16;
+  background: #000;
+}
+
+.testimonial-player iframe {
+  display: block;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+.testimonial-card figcaption {
+  padding: 1.25rem;
+}
+
+.testimonial-card h2 {
+  margin-bottom: 0.5rem;
+  font-size: 1.5rem;
+}
+
+.testimonial-card a {
+  color: var(--accent-dark);
+  text-underline-offset: 0.2rem;
+}
+
+.testimonials-contact {
+  margin-top: clamp(2.5rem, 6vw, 4rem);
+  text-align: center;
+}
+
 .contact {
   padding-block: clamp(4rem, 8vw, 7rem);
 }
@@ -710,6 +763,12 @@ p {
 }
 
 @media (max-width: 900px) {
+  .testimonials-grid {
+    grid-template-columns: minmax(0, 24rem);
+    justify-content: center;
+    gap: 2rem;
+  }
+
   .menu-button {
     display: block;
   }
