@@ -14,6 +14,7 @@
 
   <link rel="stylesheet" href="../styles.css">
   <script src="../script.js" defer></script>
+  <script src="./cursos.js" defer></script>
 </head>
 
 <body>
@@ -79,53 +80,34 @@
         <li>Máximo 15 plazas</li>
       </ul>
 
-      <div class="events-grid">
-        <article class="event-card">
-          <div class="event-card-top">
-            <span class="event-date">17–18 de octubre de 2026</span>
-            <span class="event-badge">Inscripciones abiertas</span>
-          </div>
-          <h2>Sarria, Lugo</h2>
-          <p class="event-venue">Vilamaior-Sarria</p>
-          <div class="event-contacts">
-            <a href="tel:+34636096998">+34 636 09 69 98</a>
-            <a href="tel:+34653081986">+34 653 08 19 86</a>
-          </div>
-          <a class="button button-primary event-cta" href="../#contacto">Inscribirse</a>
-        </article>
+      <div class="events-list-heading">
+        <h2>Próximos cursos</h2>
+      </div>
 
-        <article class="event-card">
-          <div class="event-card-top">
-            <span class="event-date">21–22 de noviembre de 2026</span>
-            <span class="event-badge">Inscripciones abiertas</span>
-          </div>
-          <h2>Getxo / Bilbao</h2>
-          <p class="event-venue">Centro Estimua, Getxo</p>
-          <div class="event-contacts">
-            <a href="tel:+34622038271">+34 622 03 82 71</a>
-            <a href="tel:+34653081986">+34 653 08 19 86</a>
-          </div>
-          <a class="button button-primary event-cta" href="../#contacto">Inscribirse</a>
-        </article>
-
-        <article class="event-card">
-          <div class="event-card-top">
-            <span class="event-date">12–13 de diciembre de 2026</span>
-            <span class="event-badge">Inscripciones abiertas</span>
-          </div>
-          <h2>El Prat / Barcelona</h2>
-          <div class="event-contacts">
-            <a href="tel:+34622070385">+34 622 07 03 85</a>
-            <a href="tel:+34653081986">+34 653 08 19 86</a>
-          </div>
-          <a class="button button-primary event-cta" href="../#contacto">Inscribirse</a>
-        </article>
+      <div id="upcoming-courses" class="events-grid" aria-live="polite">
+        <p class="events-loading">Cargando próximos cursos…</p>
       </div>
 
       <p class="events-note">
         Curso impartido por
         <strong>Eliseo González Medina</strong>.
       </p>
+
+      <section class="past-events" aria-labelledby="past-courses-title">
+        <div class="past-events-heading">
+          <p class="eyebrow">Ediciones anteriores</p>
+          <h2 id="past-courses-title">Cursos realizados</h2>
+        </div>
+        <div id="past-courses" class="past-events-grid" aria-live="polite">
+          <p class="events-loading">Cargando cursos anteriores…</p>
+        </div>
+      </section>
+
+      <noscript>
+        <p class="events-message">
+          Activa JavaScript para consultar las próximas fechas de los cursos.
+        </p>
+      </noscript>
     </section>
   </main>
 

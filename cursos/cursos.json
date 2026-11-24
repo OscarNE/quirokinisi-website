@@ -1,0 +1,31 @@
+[
+  {
+    "location": "Sarria, Lugo",
+    "venue": "Vilamaior-Sarria",
+    "startDate": "2026-10-17",
+    "endDate": "2026-10-18",
+    "phones": [
+      { "label": "+34 636 09 69 98", "value": "+34636096998" },
+      { "label": "+34 653 08 19 86", "value": "+34653081986" }
+    ]
+  },
+  {
+    "location": "Getxo / Bilbao",
+    "venue": "Centro Estimua, Getxo",
+    "startDate": "2026-11-21",
+    "endDate": "2026-11-22",
+    "phones": [
+      { "label": "+34 622 03 82 71", "value": "+34622038271" },
+      { "label": "+34 653 08 19 86", "value": "+34653081986" }
+    ]
+  },
+  {
+    "location": "El Prat / Barcelona",
+    "startDate": "2026-12-12",
+    "endDate": "2026-12-13",
+    "phones": [
+      { "label": "+34 622 07 03 85", "value": "+34622070385" },
+      { "label": "+34 653 08 19 86", "value": "+34653081986" }
+    ]
+  }
+]
