@@ -1,5 +1,13 @@
 [
   {
+    "location": "Vilagarcía de Arousa, Galicia",
+    "startDate": "2026-07-25",
+    "endDate": "2026-07-26",
+    "phones": [
+      { "label": "+34 653 08 19 86", "value": "+34653081986" }
+    ]
+  },
+  {
     "location": "Sarria, Lugo",
     "venue": "Vilamaior-Sarria",
     "startDate": "2026-10-17",
