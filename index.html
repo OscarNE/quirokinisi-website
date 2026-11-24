@@ -14,6 +14,7 @@
 
   <link rel="stylesheet" href="./styles.css">
   <script src="./script.js" defer></script>
+  <script src="./cursos/cursos.js" defer></script>
 </head>
 
 <body>
@@ -243,6 +244,35 @@
             </p>
           </div>
         </article>
+      </div>
+    </section>
+
+    <section
+      class="events home-events section"
+      aria-labelledby="home-courses-title"
+      data-courses-section
+      hidden
+    >
+      <div class="section-heading section-heading-centered">
+        <p class="eyebrow">Cursos</p>
+        <h2 id="home-courses-title">Próximos cursos</h2>
+        <p>
+          Aprende un método indoloro para el tratamiento del dolor, centrado
+          en resultados inmediatos, rápidos y tangibles.
+        </p>
+      </div>
+
+      <div
+        id="upcoming-courses"
+        class="events-grid"
+        data-courses-url="./cursos/cursos.json"
+        data-contact-url="#contacto"
+        data-hide-when-empty
+        aria-live="polite"
+      ></div>
+
+      <div class="home-events-more">
+        <a class="button button-secondary" href="./cursos/">Ver todos los cursos</a>
       </div>
     </section>
 

@@ -52,7 +52,7 @@ function appendTextElement(parent, tagName, className, text) {
   return element;
 }
 
-function createUpcomingCourse(course) {
+function createUpcomingCourse(course, contactUrl) {
   const card = document.createElement("article");
   card.className = "event-card";
 
@@ -84,7 +84,7 @@ function createUpcomingCourse(course) {
 
   const registrationLink = document.createElement("a");
   registrationLink.className = "button button-primary event-cta";
-  registrationLink.href = "../#contacto";
+  registrationLink.href = contactUrl;
   registrationLink.textContent = "Inscribirse";
   card.append(registrationLink);
 
@@ -115,12 +115,16 @@ function showMessage(container, message) {
 }
 
 async function loadCourses() {
-  if (!upcomingCoursesElement || !pastCoursesElement) {
+  if (!upcomingCoursesElement) {
     return;
   }
 
   try {
-    const response = await fetch("./cursos.json");
+    const coursesUrl = upcomingCoursesElement.dataset.coursesUrl || "./cursos.json";
+    const contactUrl = upcomingCoursesElement.dataset.contactUrl || "../#contacto";
+    const hideWhenEmpty = upcomingCoursesElement.hasAttribute("data-hide-when-empty");
+    const coursesSection = upcomingCoursesElement.closest("[data-courses-section]");
+    const response = await fetch(coursesUrl);
     if (!response.ok) {
       throw new Error(`No se pudieron cargar los cursos (${response.status})`);
     }
@@ -135,29 +139,42 @@ async function loadCourses() {
       .sort((a, b) => localDate(b.startDate) - localDate(a.startDate));
 
     upcomingCoursesElement.replaceChildren(
-      ...upcomingCourses.map(createUpcomingCourse)
+      ...upcomingCourses.map((course) => createUpcomingCourse(course, contactUrl))
     );
-    pastCoursesElement.replaceChildren(...pastCourses.map(createPastCourse));
     upcomingCoursesElement.dataset.count = String(upcomingCourses.length);
-    pastCoursesElement.dataset.count = String(pastCourses.length);
 
-    if (upcomingCourses.length === 0) {
-      showMessage(
-        upcomingCoursesElement,
-        "No hay nuevas fechas publicadas. Vuelve pronto para consultar próximos cursos."
-      );
+    if (pastCoursesElement) {
+      pastCoursesElement.replaceChildren(...pastCourses.map(createPastCourse));
+      pastCoursesElement.dataset.count = String(pastCourses.length);
     }
 
-    if (pastCourses.length === 0) {
+    if (coursesSection && upcomingCourses.length > 0) {
+      coursesSection.hidden = false;
+    }
+
+    if (upcomingCourses.length === 0) {
+      if (!hideWhenEmpty) {
+        showMessage(
+          upcomingCoursesElement,
+          "No hay nuevas fechas publicadas. Vuelve pronto para consultar próximos cursos."
+        );
+      }
+    }
+
+    if (pastCoursesElement && pastCourses.length === 0) {
       showMessage(pastCoursesElement, "Todavía no hay cursos anteriores para mostrar.");
     }
   } catch (error) {
     console.error(error);
-    showMessage(
-      upcomingCoursesElement,
-      "No se pudieron cargar las fechas. Inténtalo de nuevo más tarde."
-    );
-    showMessage(pastCoursesElement, "No se pudieron cargar los cursos anteriores.");
+    if (!upcomingCoursesElement.hasAttribute("data-hide-when-empty")) {
+      showMessage(
+        upcomingCoursesElement,
+        "No se pudieron cargar las fechas. Inténtalo de nuevo más tarde."
+      );
+    }
+    if (pastCoursesElement) {
+      showMessage(pastCoursesElement, "No se pudieron cargar los cursos anteriores.");
+    }
   }
 }
 
