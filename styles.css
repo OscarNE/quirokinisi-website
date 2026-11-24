@@ -455,6 +455,11 @@ p {
   border-top: 1px solid var(--border);
 }
 
+.events .section-heading h1 {
+  max-width: none;
+  font-size: clamp(2.8rem, 6vw, 5rem);
+}
+
 .events-slogan {
   margin: 0 auto clamp(2rem, 5vw, 3.5rem);
   color: var(--accent-dark);
